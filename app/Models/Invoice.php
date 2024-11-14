@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     public function customer():mixed {
-        
-        return this->belongsTo(Customer::class);
+
+        return $this->belongsTo(Customer::class);
     }
 }
