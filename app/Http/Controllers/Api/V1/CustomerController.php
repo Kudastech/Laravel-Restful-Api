@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Resources\V1\CustomerCollection;
 use App\Http\Resources\V1\CustomerResource;
 use App\Http\Resources\V1CustomerCollection;
 use App\Models\Customer;
@@ -15,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return new V1CustomerCollection();
+        return new CustomerCollection(Customer::all());
     }
 
     /**
