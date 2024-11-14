@@ -9,7 +9,8 @@ use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Http\Controllers\Controller;
-use Request;
+use Illuminate\Http\Request;
+use App\Services\V1\CustomerQuery;
 class CustomerController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $filter = new CustomerQuery();
-        
+
         $queryItems = $filter->transform($request);
 
         if(count($queryItems) == 0){
